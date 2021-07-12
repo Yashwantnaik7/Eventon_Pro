@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <!-- Begin Head -->
+    <head>
+        <!-- Basic -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>About {{event_name}}.EventOn</title>
+        <meta name="keywords" content="HTML5 Theme" />
+        <meta name="description" content="Megakit - HTML5 Theme">
+        <meta name="author" content="keenthemes.com">
+
+        <!-- Web Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
+
+        <!-- Vendor Styles -->
+        <link  href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}"  rel="stylesheet" >
+        <link  href="{{url_for('static', filename='css/eventview/animate.css')}}" rel="stylesheet">
+        <link  href="{{url_for('static', filename='vendor/scrollbar/scrollbar.min.css')}}" rel="stylesheet" >
+
+        <!-- Theme Styles -->
+
+        <link  href="{{url_for('static', filename='css/eventview/global/global.css')}}"  rel="stylesheet">
+         <link href="{{url_for('static', filename='css/eventview/style.css')}}" rel="stylesheet" >
+        <style>
+    .alert-error{
+    padding:2px;
+    background-color: whitesmoke;
+    color:black;
+    }
+  </style>
+
+    </head>
+    <body>
+
+    <button class="btn" onclick="location.href='/#schedule-section'">Go back </button>
+        <div class="container g-padding-y-80--xs g-padding-y-125--sm">
+             {% for message in get_flashed_messages() %}
+  <div class="alert-error">{{message}}</div>
+  {% endfor %}
+
+      <h2>About Event</h2>
+
+            <figure class="fig-container ">
+                <img src="/static/images/uploads/{{ image }}"  alt="This image is about {{ event_name }}" style="height: 20%; width: 100%;  background-size: cover;">
+            </figure>
+        </div>
+        <div class="s-promo-block-v2 js__parallax-window" style="background:  50% 0 no-repeat fixed; background-size: cover;">
+            <div class="container">
+                <div class="row g-hor-centered-row--md">
+                    <div class="col-md-7 g-hor-centered-row__col g-padding-y-80--xs">
+                        <h2 >{{event_name}}</h2>
+                     <p class="g-font-size-18--xs g-color--white-opacity g-margin-b-40--xs">{{venue}}</p>
+                        <p class="g-font-size-18--xs g-color--white-opacity g-margin-b-40--xs">{{disc}}</p>
+                           <div class="g-margin-b-20--xs">
+                  <span class="g-font-size-30--xs g-font-weight--700 g-color--white">From&nbsp;{{s_date}}&nbsp;<br>To&nbsp;{{e_date}}</span>
+<br>
+                           <span class="g-font-size-30--xs g-font-weight--700 g-color--white">At&nbsp;{{s_time}}-{{e_time}}</span>
+                        </div>
+                        <a href="/#schedule-section" class="text-uppercase s-btn s-btn--md s-btn--white-brd g-radius--50 g-padding-x-50--xs g-margin-b-20--xs">Find out More</a>
+                    </div>
+                    <div  class="col-md-5 g-hor-centered-row__col g-margin-b-80--xs">
+                        <form style="box-shadow: 15px 15px 19px 0px rgba(8, 8, 8, 0.7);" action="/subscription/{{event_name}}" method="post" class="center-block s-promo-block-v2__form g-width-100-percent--xs g-width-400--sm g-bg-color--dark-light g-padding-x-50--xs g-padding-y-80--xs g-radius--4">
+                            <div class="g-text-center--xs g-margin-b-40--xs">
+                                <h2 class="g-font-size-30--xs g-color--white">Join Event</h2>
+                            </div>
+                            <div class="g-margin-b-40--xs">
+                               <p>Ticket price:&nbsp;<b>{{ticket_price[1]}}</b></p>
+                            </div>
+                            <div class="g-margin-b-40--xs">
+                                <input type="text" class="form-control s-form-v3__input" placeholder="* Name" name="name" required="">
+                            </div>
+                            <div class="g-margin-b-40--xs">
+                                <input type="email" class="form-control s-form-v3__input" placeholder="* Email" name="email" required="">
+                            </div>
+                            <div class="g-margin-b-40--xs">
+                                <input type="text" class="form-control s-form-v3__input" placeholder="* Phone" name="mobile" required="">
+                            </div>
+                            <div class="g-text-center--xs">
+                                <button type="submit" class="text-uppercase btn-block s-btn s-btn--md s-btn--white-bg g-radius--50 g-padding-x-50--xs g-margin-b-20--xs">Join Now</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <p><strong>NOTE:</strong></p><ul><li>The host/organiser will share the Meeting id and Password directly with the client once the booking is done(for online events).</li>
+        <li>Payment procedure is depending upon the host/organiser.</li>
+        </ul>
+            <!-- End Upcoming Event -->
+
+        <!-- Speakers -->
+        <div class="g-hor-divider__dashed--sky-light">
+            <div class="container g-padding-y-80--xs g-padding-y-125--sm">
+                <div class="g-text-center--xs g-margin-b-80--xs">
+                    <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2 g-margin-b-25--xs">Crew</p>
+                    <h2 class="g-font-size-32--xs g-font-size-36--sm">Who Can you Hear?</h2>
+                </div>
+                <div class="row g-overflow--hidden">
+                    <div class="col-xs-6 g-full-width--xs g-margin-b-30--xs g-margin-b-0--lg">
+                        <!-- Speaker -->
+                        <div class="center-block g-box-shadow__dark-lightest-v1 g-width-100-percent--xs g-width-400--lg">
+                            <div class="g-position--overlay g-padding-x-30--xs g-padding-y-30--xs g-margin-t-o-60--xs">
+                                <div class="g-bg-color--primary g-padding-x-15--xs g-padding-y-10--xs g-margin-b-20--xs">
+                                    <h4 class="g-font-size-22--xs g-font-size-26--sm g-color--white g-margin-b-0--xs"><br>{{username}}</h4>
+                                </div>
+                                <p class="g-font-weight--700">Host</p>
+                                <p>Now that we've aligned the details, it's time to get things mapped out and organized. This part is really crucial in keeping the event in line to completion.</p>
+                           <p>mobile:&nbsp;{{mobile}}</p>
+                                <p>email:&nbsp;{{email}}</p>
+                            </div>
+                        </div>
+                        <!-- End Speaker -->
+                    </div><br>
+                    <div class="col-xs-6 g-full-width--xs g-margin-b-30--xs g-margin-b-0--lg">
+                        <!-- Speaker -->
+                        <div class="center-block g-box-shadow__dark-lightest-v1 g-width-100-percent--xs g-width-400--lg">
+                            <div class="g-position--overlay g-padding-x-30--xs g-padding-y-30--xs g-margin-t-o-60--xs">
+                                <div class="g-bg-color--primary g-padding-x-15--xs g-padding-y-10--xs g-margin-b-20--xs">
+                                    <h4 class="g-font-size-22--xs g-font-size-26--sm g-color--white g-margin-b-0--xs">{{org_name}}</h4>
+                                </div>
+                                <p class="g-font-weight--700">Organizer</p>
+                                <p>Now that we've aligned the details, it's time to get things mapped out and organized. This part is really crucial in keeping the project in line to completion.</p>
+                            <p>mobile:&nbsp;{{org_mobile}}</p>
+                                <p>email:&nbsp;{{org_email}}</p>
+                            </div>
+                        </div>
+                        <!-- End Speaker -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Speakers -->
+
+    </body>
+    <!-- End Body -->
+</html>

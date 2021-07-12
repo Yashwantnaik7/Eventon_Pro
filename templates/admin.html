@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>EventOn Admin Dashboard</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='vendor/mdi/css/materialdesignicons.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='vendor/base/vendor.bundle.base.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='vendor/datatables.net-bs4/dataTables.bootstrap4.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/admin/style.css')}}">
+
+</head>
+<body>
+  <div class="container-scroller">
+
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="navbar-brand-wrapper d-flex justify-content-center">
+        <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-sort-variant"></span>
+          </button>
+        </div>  
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <ul class="navbar-nav mr-lg-4 w-100">
+          <li class="nav-item nav-search d-none d-lg-block w-100">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="search">
+                  <i class="mdi mdi-magnify"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" placeholder="Search now" aria-label="search" aria-describedby="search">
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown mr-1">
+            <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
+              <i class="mdi mdi-message-text mx-0"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="messageDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
+              <a class="dropdown-item">
+                <div class="item-content flex-grow">
+                  <h6 class="ellipsis font-weight-normal">David Grey
+                  </h6>
+                  <p class="font-weight-light small-text text-muted mb-0">
+                    The meeting is cancelled
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item">
+                <div class="item-content flex-grow">
+                  <h6 class="ellipsis font-weight-normal">Tim Cook
+                  </h6>
+                  <p class="font-weight-light small-text text-muted mb-0">
+                    New product launch
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item">
+                <div class="item-content flex-grow">
+                  <h6 class="ellipsis font-weight-normal"> Johnson
+                  </h6>
+                  <p class="font-weight-light small-text text-muted mb-0">
+                    Upcoming board meeting
+                  </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown mr-4">
+            <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center notification-dropdown" id="notificationDropdown" href="#" data-toggle="dropdown">
+              <i class="mdi mdi-bell mx-0"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+              <a class="dropdown-item">
+                <div class="item-thumbnail">
+                  <div class="item-icon bg-success">
+                    <i class="mdi mdi-information mx-0"></i>
+                  </div>
+                </div>
+                <div class="item-content">
+                  <h6 class="font-weight-normal">Application Error</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Just now
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item">
+                <div class="item-thumbnail">
+                  <div class="item-icon bg-warning">
+                    <i class="mdi mdi-settings mx-0"></i>
+                  </div>
+                </div>
+                <div class="item-content">
+                  <h6 class="font-weight-normal">Settings</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Private message
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item">
+                <div class="item-thumbnail">
+                  <div class="item-icon bg-info">
+                    <i class="mdi mdi-account-box mx-0"></i>
+                  </div>
+                </div>
+                <div class="item-content">
+                  <h6 class="font-weight-normal">New user registration</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    2 days ago
+                  </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+              <span class="nav-profile-name">Yashwant Naik</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="mdi mdi-settings text-primary"></i>
+                Settings
+              </a>
+              <a class="dropdown-item" href="/logout">
+                <i class="mdi mdi-logout text-primary"></i>
+                Logout
+              </a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/dashboard">
+              <i class="mdi mdi-home menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/basic_element">
+              <i class="mdi mdi-view-headline menu-icon"></i>
+              <span class="menu-title">Event Form</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/basic_table">
+              <i class="mdi mdi-grid-large menu-icon"></i>
+              <span class="menu-title">Tables</span>
+            </a>
+          </li>
+      
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="mdi mdi-account menu-icon"></i>
+              <span class="menu-title">User Pages</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/admin/userlogin"> Login </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/admin/register"> Register </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/documentation">
+              <i class="mdi mdi-file-document-box-outline menu-icon"></i>
+              <span class="menu-title">Documentation</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          
+          <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="d-flex justify-content-between flex-wrap">
+                <div class="d-flex align-items-end flex-wrap">
+                  <div class="mr-md-3 mr-xl-5">
+                    <h2>Welcome back,</h2>
+                    <p class="mb-md-0">Your analytics dashboard.EventOn</p>
+                  </div>
+                  <div class="d-flex">
+                    <i class="mdi mdi-home text-muted hover-cursor"></i>
+                    <p class="text-muted mb-0 hover-cursor">&nbsp;/&nbsp;Dashboard&nbsp;/&nbsp;</p>
+                    <p class="text-primary mb-0 hover-cursor">Analytics</p>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-end flex-wrap">
+                  <button type="button" class="btn btn-light bg-white btn-icon mr-3 d-none d-md-block ">
+                    <i class="mdi mdi-download text-muted"></i>
+                  </button>
+                  <button type="button" class="btn btn-light bg-white btn-icon mr-3 mt-2 mt-xl-0">
+                    <i class="mdi mdi-clock-outline text-muted"></i>
+                  </button>
+                  <button type="button" class="btn btn-light bg-white btn-icon mr-3 mt-2 mt-xl-0">
+                    <i class="mdi mdi-plus text-muted" ><a href="/admin/basic_element"></a></i>
+                  </button>
+                  <a class="btn btn-primary mt-2 mt-xl-0" href="/">Home</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" id="proBanner">
+            <div class="col-md-12 grid-margin">
+              <div class="card bg-gradient-primary border-0">
+                <div class="card-body py-3 px-4 d-flex align-items-center justify-content-between flex-wrap">
+                  <p class="mb-0 text-white font-weight-medium">Please update the NEW event details i.e ticket price and organizer                  </p>
+                  <div class="d-flex">
+                    <button id="bannerClose" class="btn border-0 p-0 ml-auto">
+                      <i class="mdi mdi-close text-white"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+          <div class="row">
+{#            <div class="col-md-7 grid-margin stretch-card">#}
+{#              <div class="card">#}
+{#                <div class="card-body">#}
+{#                  <p class="card-title">Cash deposits</p>#}
+{#                  <p class="mb-4">To start a blog, think of a topic about and first brainstorm party is ways to write details</p>#}
+{#                  <div id="cash-deposits-chart-legend" class="d-flex justify-content-center pt-3"></div>#}
+{#                  <canvas id="cash-deposits-chart"></canvas>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+            <div class="col-md-5 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title">Total events</p>
+                  <h1>2885</h1>
+                  <h4> Events over the years</h4>
+                  <p class="text-muted">Number of events organized by eventon in previous years are mapped </p>
+                  <div id="total-sales-chart-legend"></div>                  
+                </div>
+                <canvas id="total-sales-chart"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title">Recent Events</p>
+                  <div class="table-responsive">
+                    <table id="recent-purchases-listing" class="table">
+                      <thead>
+                        <tr>
+                            <th>Host</th>
+                            <th>Event</th>
+                            <th>Type</th>
+                            <th>Start Date/Time</th>
+                            <th>End Date/Time</th>
+                          <th>Venue</th>
+                          <th>Peoples</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for event in events %}
+                        <tr>
+                            <td>{{event[0]}}</td>
+                            <td>{{event[1]}}</td>
+                            <td>{{event[2]}}</td>
+                            <td>{{event[4]}}-{{event[6]}}</td>
+                            <td>{{event[5]}}-{{event[7]}}</td>
+                          <td>{{event[8]}}</td>
+                          <td>{{event[9]}}</td>
+                          <td><button type="submit" class="btn btn-primary mr-2" onclick="window.location.href='/admin/update/{{event[1]}}'">Update</button></td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="footer">
+
+        </footer>
+      </div>
+    </div>
+  </div>
+  <script src="{{ url_for('static' , filename='vendor/base/vendor.bundle.base.js')}}"></script>
+  <script src="{{ url_for('static' , filename='vendor/chart.js/Chart.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='vendor/datatables.net/jquery.dataTables.js')}}"></script>
+  <script src="{{ url_for('static' , filename='vendor/datatables.net-bs4/dataTables.bootstrap4.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/admin/off-canvas.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/admin/hoverable-collapse.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/admin/template.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/admin/dashboard.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/admin/data-table.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/admin/jquery.dataTables.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/admin/dataTables.bootstrap4.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/admin/jquery.cookie.js')}}" type="text/javascript"></script>
+</body>
+
+</html>
+

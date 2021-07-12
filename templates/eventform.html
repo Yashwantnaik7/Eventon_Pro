@@ -1,0 +1,164 @@
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Fill Event Form .EventOn</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Assistance Enroll Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements"
+	/>
+    	<script type="application/x-javascript">
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<link href="{{url_for('static', filename='css/regstyle.css')}}" rel='stylesheet' type='text/css' />
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/open-iconic-bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/animate.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+	  <link rel="stylesheet" href="{{url_for('static', filename='css/reset.css')}}">
+ <style>
+    .alert-error{
+    padding:2px;
+    background-color: #ffcccb;
+    color:black;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar" style="margin-right: 0px">
+    <div class="container">
+      <a class="navbar-brand" href="/">Event<span>On.</span></a>
+      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav nav ml-auto">
+          <li class="nav-item"><a href="/#home-section" class="nav-link"><span>Home</span></a></li>
+          <li class="nav-item"><a href="/#schedule-section" class="nav-link"><span>Events</span></a></li>
+          <li class="nav-item"><a href="/#blog-section" class="nav-link"><span>Blog</span></a></li>
+          <li class="nav-item"><a href="/#contact-section" class="nav-link"><span>Contact</span></a></li>
+          <li class="nav-item cta"><a href="/profile" class="nav-link">Profile</a></li>
+
+    </ul>
+    </div>
+  </div>
+  </nav>
+
+<br><br><br>
+
+	<div class="bg-w3layouts-main">
+        {% for message in get_flashed_messages() %}
+  <div class="alert-error">{{message}}</div>
+  {% endfor %}
+		<h2>ADD your new event here!</h2>
+		<div class="form-content-agileinfo">
+
+			<form action="/profile/add_event/{{username}}" method="post" enctype="multipart/form-data">
+                <h2><b>{{username}}</b></h2><br>
+                <div class="bottom-w3-agileits-space form-text1">
+						<input type="text" name="eventname" placeholder="Event Name" required="">
+</div>
+
+					<div class="bottom-w3-agileits-space form-text1">
+						<input type="text" name="discription" placeholder="Discription" required="">
+					</div>
+                	<div class="main-divs-agileits-w3layouts">
+                		
+						<div class="bottom-w3-agileits-space form-text1"><p style="color:#808080">Start Date
+						<input style="color:#808080" type="date" name="s-date" required=""></p>
+					</div>
+					
+					<div class="bottom-w3-agileits-space form-text2"><p style="color:#808080">Time
+						<input style="color:#808080" type="time" name="s_time" required="" value="00:00"></p>
+					</div>
+
+				</div>
+
+                <div class="main-divs-agileits-w3layouts">
+                		
+					<div class="bottom-w3-agileits-space form-text1"><p style="color:#808080">End Date
+						<input style="color:#808080" type="date" name="e-date" required=""></p>
+					</div>
+					
+					<div class="bottom-w3-agileits-space form-text2"><p style="color:#808080">Time
+						<input style="color:#808080" type="time" name="e_time" required="" value="00:00"></p>
+					</div>
+
+				</div>
+
+                <div class="bottom-w3-agileits-space form-text1">
+						<input type="text" name="venue" placeholder="Venue name" required="">
+					</div>
+                <div class="bottom-w3-agileits-space form-text1">
+						<input type="text" name="people" placeholder="Expected number of people attending" required="">
+					</div>
+
+		<div class="bottom-w3-agileits-space form-text1">
+                	<select name="event_type" id="eventtype" style="color:#808080; border: 1px solid rgb(199, 199, 199);
+    box-sizing: border-box;font-family: 'Roboto', sans-serif;">
+						<option value="None">Select Event Type</option>
+                   		 <option value="private">Private</option>
+                    	<option value="business">Business</option>
+                    	<option value="public">Public</option>
+					</select>
+				</div>
+		<p style="color:#808080;" >Services</p>
+	<div class="main-divs-agileits-w3layouts">
+					<div class="bottom-w3-agileits-space form-text1">
+						 <select name="orga" id="orga" style="color:#808080; border: 1px solid rgb(199, 199, 199);
+    box-sizing: border-box;font-family: 'Roboto', sans-serif;">
+							<option value="yes">Organized</option>
+                    		<option value="no">Not required</option>
+				 </select>
+					</div>
+			<div class="bottom-w3-agileits-space form-text1">
+ 					<select name="ticket" id="ticket" style="color:#808080; border: 1px solid rgb(199, 199, 199);
+    box-sizing: border-box;font-family: 'Roboto', sans-serif;">
+						<option value="Book Ticket">Ticket</option>
+                    	<option value="Free">Not required</option>
+				</select>
+			</div>
+        <div class="bottom-w3-agileits-space form-text1">
+           <input type="text" name="ticketprice" placeholder="Ticket Price" value="&#8377;">
+                </div>
+		</div>
+
+                <p style="color:#808080;" >Upload Image</p>
+                <div class="main-divs-agileits-w3layouts">
+                    <div class="bottom-w3-agileits-space form-text1">
+                        <input type="file" name="image" class="form-control file-upload-info" autocomplete="off" placeholder="Upload Image">
+
+                    </div>
+
+                </div>
+
+				<input type="submit" value="Add event">
+				<div class="clear"></div>
+			</form>
+		</div>
+	</div><br><br>
+  <script src="{{ url_for('static' , filename='js/jquery.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/jquery-migrate-3.0.1.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/popper.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/bootstrap.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/jquery.easing.1.3.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/jquery.waypoints.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/jquery.stellar.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/owl.carousel.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/jquery.magnific-popup.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/aos.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/jquery.animateNumber.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/scrollax.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/google-map.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/main.js')}}"></script>
+</body>
+
+</html>
