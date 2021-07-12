@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{{username}} profile.EventOn</title>
+     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/sign-in/">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/open-iconic-bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/animate.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/profile.css')}}">
+  <style>
+    .alert-error{
+    padding:1px;
+    background-color:#fff;
+    color:black;
+    }
+  </style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar" style="margin-right: 0px">
+    <div class="container">
+      <a class="navbar-brand" href="/">Event<span>On.</span></a>
+      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav nav ml-auto">
+          <li class="nav-item"><a href="/#home-section" class="nav-link"><span>Home</span></a></li>
+          <li class="nav-item"><a href="/#schedule-section" class="nav-link"><span>Events</span></a></li>
+
+          <li class="nav-item"><a href="/#blog-section" class="nav-link"><span>Blog</span></a></li>
+          <li class="nav-item"><a href="/#contact-section" class="nav-link"><span>Contact</span></a></li>
+          <li class="nav-item cta"><a href="/profile" class="nav-link">Profile</a></li>
+
+    </ul>
+
+    </div>
+
+  </div>
+
+  </nav>
+<br><br><br>
+{% for message in get_flashed_messages() %}
+  <div class="alert-error">{{message}}</div>
+  {% endfor %}
+
+<!--<div class="image_prof">-->
+<!--<img src="static/images/profile.ico" /></div>-->
+<div class="profile_sec">
+    <h2>{{ username }}  <button class="btn" data-toggle="modal" data-target="#staticBackdrop"><img src="static/images/setting.png" alt=""> </button></h2>
+<p>{{bio}}</p>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Setting</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <a href="/reset/{{username}}"> Change password</a><br>
+      </div>
+         <div class="modal-body">
+             <a href="/logout" >Logout</a>
+      </div>
+{#        <div class="modal-body">#}
+{#            <form action="/video" method="post">#}
+{#             <input type="text" name="youtube" placeholder="youtube video link">#}
+{#                <button type="submit" class="btn-dark">share</button>#}
+{#              </form>#}
+{#      </div>#}
+      <div class="modal-footer">
+        <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+          <br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="profile_sec">
+<button type="button" class="edit_pro_sec" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Edit profile</button>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/edit" method="post">
+          <div class="form-group">
+            <label class="col-form-label">Username:</label>
+            <input type="text" class="form-control"  name="username1" value="{{username}}">
+          </div>
+          <div class="form-group">
+            <label  class="col-form-label">Bio:</label>
+            <input type="text" class="form-control"  name="bio1" value="{{bio}}">
+          </div>
+            <div class="form-group">
+            <label  class="col-form-label">Email:</label>
+            <input type="text" class="form-control"  name="email1" value="{{email}}">
+          </div>
+            <div class="form-group">
+            <label  class="col-form-label">Mobile No:</label>
+            <input type="text" class="form-control" name="mbl_no1" value="{{mbl_no}}">
+          </div>
+            <div class="modal-footer">
+                 <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div style="overflow: auto; width: 100%;height: 100vh">
+
+
+
+                            {% for org_event in org_events %}
+                                <div style="width:90%;margin:auto;box-shadow: 15px 15px 19px 0px rgba(8, 8, 8, 0.52);
+border: 0;" class="speaker-wrap ftco-animate d-flex">
+                                <div class="img speaker-img" style="background-image: url(static/images/uploads/{{ org_event[14] }});"></div>
+	              		<div class="text pl-md-5">
+	              			<span class="time">{{org_event[5]}} &nbsp;{{org_event[6]}}-{{org_event[7]}}</span>
+	              			<h2><a>{{org_event[1]}}</a></h2>
+	              			<p style="color:brown;">{{org_event[3]}}</p>
+	              			<h3 class="speaker-name" style="color:#808080;">&mdash; <a>{{org_event[0]}}</a> </h3>
+                            </div></div><br>
+                          {% endfor %}
+</div>
+
+
+<br>
+  <footer class="ftco-footer ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">About EventOn.</h2>
+			  <p>Creating a platform for people to get complete solution on organizing an event and provinding exposure for oranizers with resourses and also to ease the process of booking the ticket for large events</p>
+			  <p>wish you a beutiful experience with EventOn</p>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-4"><br><br><br>
+              <h2 class="ftco-heading-2">Links</h2>
+              <ul class="list-unstyled">
+                <li><a href="/#home-section"><span class="icon-long-arrow-right mr-2"></span>Home</a></li>
+              <li><a href="/#schedule-section"><span class="icon-long-arrow-right mr-2"></span>Events</a></li>
+              <li><a href="/#pricing-section"><span class="icon-long-arrow-right mr-2"></span>Register</a></li>
+              <li><a href="/#blog-section"><span class="icon-long-arrow-right mr-2"></span>Blog</a></li>
+                <li><a href="/#contact-section"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
+              </ul>
+			</div>
+          </div>
+
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4"><br><br><br>
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">EventOn Office. Bhatkal, Uttara Kannada, Karnataka, INDIA</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91 94492 19515</span></a></li>
+	                <li><a href="/#contact-section"><span class="icon icon-envelope"></span><span class="text">eventon43@gmail.com</span></a></li>
+	              </ul>
+	            </div>
+			</div>
+          </div>
+        </div>
+
+      </div>
+
+    </footer>
+
+  <script src="{{ url_for('static' , filename='js/jquery.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/jquery-migrate-3.0.1.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/popper.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/bootstrap.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/jquery.easing.1.3.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/jquery.waypoints.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/jquery.stellar.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/owl.carousel.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/jquery.magnific-popup.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/aos.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/jquery.animateNumber.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/scrollax.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/google-map.js')}}"></script>
+  <script src="{{ url_for('static' , filename='js/main.js')}}"></script>
+</body>
+</html>

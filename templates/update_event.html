@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>EventOn Admin</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='vendor/mdi/css/materialdesignicons.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='vendor/base/vendor.bundle.base.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/admin/style.css')}}">
+
+
+</head>
+
+<body>
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="main-panel w-100  documentation">
+        <div class="content-wrapper">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12 doc-header">
+                <a class="btn btn-success" href="/admin/dashboard"><i class="mdi mdi-home mr-2"></i>Back to home</a>
+
+              </div>
+            </div>
+            <div class="row doc-content">
+              <div class="col-12 col-md-10 offset-md-1">
+                <div class="col-12 grid-margin" id="doc-intro">
+                    <form action="/admin/update/{{events[1]}}" method="post">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="mb-4 mt-4"><input type="text"  class="form-control" name="event" value="{{events[1]}}"></h1>
+                            <p> <div class="form-group">
+                      <label for="exampleTextarea1">discription</label>
+                      <textarea  name="disc" class="form-control" id="exampleTextarea1" rows="4" >{{events[3]}}</textarea>
+                    </div></p>
+                            <p>start date & time<br><input type="text" class="form-control" name="s_date" value="{{events[4]}}"><input type="text" class="form-control" name="s_time" value="{{events[6]}}"></p>
+                            <p>end date & time<br><input type="text"  class="form-control" name="e_date" value="{{events[5]}}"><input type="text" class="form-control" name="e_time" value="{{events[7]}}"></p>
+                            <p>venue<br><input type="text"class="form-control"  name="venue" value="{{events[8]}}"></p>
+                            <p>Enter Ticket Price<br><input type="text" class="form-control" name="ticket_price" value="{{ticket_price[1]}}" ></p>
+                        <p>Enter Organizor username<br><input type="text" class="form-control" name="organizor" value="{{organized[0]}}"></p>
+                        </div>
+                        <button class="btn btn-primary mr-2" type="submit" style="background-color:black;color:white;">Update</button>
+                    </div>
+                        </form>
+                                            <button class="btn btn-primary mr-2" type="submit" style="background-color:darkred;color:white;position: center;width:60%"><a href="/admin/close/{{ events[1] }}">Delete</a></button>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- partial:../partials/_footer.html -->
+
+        <footer class="footer">
+
+        </footer>
+
+        <!-- partial -->
+      </div>
+    </div>
+  </div>
+<!-- plugins:js -->
+<script src="static/vendor/base/vendor.bundle.base.js"></script>
+<!-- endinject -->
+<!-- inject:js -->
+<script src="static/js/admin/off-canvas.js"></script>
+<script src="static/js/admin/hoverable-collapse.js"></script>
+<script src="static/js/admin/template.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
+<script src="static/js/admin/documentation.js"></script>
+<!-- End custom js for this page-->
+</body>
+
+</html>

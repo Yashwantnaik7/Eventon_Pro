@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Majestic Admin Dashboard</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{{url_for('static', filename='vendor/mdi/css/materialdesignicons.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='vendor/base/vendor.bundle.base.css')}}">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{{url_for('static', filename='css/admin/style.css')}}">
+  <!-- endinject -->
+
+</head>
+
+<body>
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="main-panel w-100  documentation">
+        <div class="content-wrapper">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12 doc-header">
+                <a class="btn btn-success" href="/"><i class="mdi mdi-home mr-2"></i>Back to home</a>
+                <h1 class="text-primary mt-4">Documentation</h1>
+              </div>
+            </div>
+            <div class="row doc-content">
+              <div class="col-12 col-md-10 offset-md-1">
+                <div class="col-12 grid-margin" id="doc-intro">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="mb-4 mt-4">Introduction</h3>
+                            <p>Event management is a process of organizing a professional and focused event,
+                                for a particular target audience. It involves visualizing concepts, planning,
+                                budgeting, organizing and executing events such as wedding, musical concerts, corporate
+                                seminars, exhibitions, birthday celebrations, theme parties, etc. Event Management is a multi-million dollar
+                                industry, growing rapidly, with events hosted regularly. Surprisingly, there is no formalized research conducted to access
+                                the growth of this industry. The industry includes fields such as the MICE (Meetings, Incentives and Events), exhibitions,
+                                conferences and seminars as well as live music and sporting events. On the profession side, event management is a glamorous
+                                and exciting profession that demands a lot of hard work and dynamism.</p>
+                        </div>
+                    </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- partial:../partials/_footer.html -->
+
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021 </span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span>
+          </div>
+        </footer>
+
+        <!-- partial -->
+      </div>
+    </div>
+  </div>
+<!-- plugins:js -->
+<script src="static/vendor/base/vendor.bundle.base.js"></script>
+<!-- endinject -->
+<!-- inject:js -->
+<script src="static/js/admin/off-canvas.js"></script>
+<script src="static/js/admin/hoverable-collapse.js"></script>
+<script src="static/js/admin/template.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
+<script src="static/js/admin/documentation.js"></script>
+<!-- End custom js for this page-->
+</body>
+
+</html>
